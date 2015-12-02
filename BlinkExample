@@ -1,6 +1,7 @@
 
 
-
+//Interrupt based LED blinker function with a push button to turn ON and OFF the LED blinker functionality.
+//Note: the button will only freeze the LED state(s)
 class Blinker
 {
   int LEDPin;
@@ -9,9 +10,6 @@ class Blinker
   int LEDstate;
   unsigned long previousMillis;
   
-
-
-
   public:
   Blinker(int pin, long on, long off)
   {
@@ -48,14 +46,14 @@ class Blinker
 };
 
 Blinker led1(9, 250, 250);  //Blink the LED: Pin 9, ON Time = 250ms, OFF Time = 250ms
-Blinker led2(7, 500, 500); 
+Blinker led2(7, 500, 500);  //Blink the LED: Pin 7, ON Time = 500ms, OFF Time = 500ms
 
+//Define the push button variables
 int ButtonState = 0;
 int Bpin = 13;
 
 void setup() 
 {
-  
   pinMode(Bpin, INPUT_PULLUP);
   Serial.begin(9600);
 }
